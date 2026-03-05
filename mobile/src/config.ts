@@ -1,4 +1,4 @@
-export const BACKEND_BASE_URL = "http://192.168.0.10:8000"; // replace with your machine IP for device testing
+export const BACKEND_BASE_URL = "http://150.241.106.205:8000"; // production server
 
 export const SUPABASE_URL = "https://your-project-id.supabase.co";
 export const SUPABASE_ANON_KEY = "your-public-anon-key";
