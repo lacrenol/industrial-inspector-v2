@@ -1,0 +1,26 @@
+# Systemd unit для бэкенда Stroyka (Vertex AI).
+# Установка на сервере:
+#   sudo cp stroyka-backend.service /etc/systemd/system/
+#   sudo nano /etc/systemd/system/stroyka-backend.service  # поправить User и пути
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable stroyka-backend
+#   sudo systemctl start stroyka-backend
+#   sudo systemctl status stroyka-backend
+
+[Unit]
+Description=Stroyka FastAPI Backend (Vertex AI)
+After=network.target
+
+[Service]
+Type=simple
+User=YOUR_USER
+WorkingDirectory=/opt/stroyka/backend
+Environment=PATH=/opt/stroyka/backend/.venv/bin
+Environment=GOOGLE_CLOUD_PROJECT=stroyka-489218
+Environment=GOOGLE_CLOUD_LOCATION=us-central1
+ExecStart=/opt/stroyka/backend/.venv/bin/python3 -m uvicorn app_vertex:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

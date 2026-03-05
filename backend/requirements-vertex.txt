@@ -1,0 +1,6 @@
+# Минимальные зависимости для запуска только Vertex AI бэкенда (app_vertex.py)
+# Использование: pip install -r requirements-vertex.txt
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+google-genai>=1.0.0
